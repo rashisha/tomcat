@@ -1,0 +1,6 @@
+DEPENDENCIES
+  tomcat
+    path: .
+
+GRAPH
+  tomcat (0.1.0)

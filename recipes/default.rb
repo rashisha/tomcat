@@ -65,10 +65,18 @@ cookbook_file '/var/lib/tomcat/webapps/ServletDBLog4jExample.war' do
   group 'root'
   mode '0755'
   action :create
+  notifies :restart, resources(:service => "tomcat"), :immediately
 end
 
 ruby_block 'wait for tomcat' do
   block do
     true until ::File.exists?('/var/lib/tomcat/webapps/ServletDBLog4jExample/WEB-INF/web.xml')
   end
+end
+template "/var/lib/tomcat/webapps/ServletDBLog4jExample/WEB-INF/web.xml" do
+  source "web.xml.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  notifies :restart, resources(:service => "tomcat")
 end
