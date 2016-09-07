@@ -3,4 +3,4 @@ DEPENDENCIES
     path: .
 
 GRAPH
-  tomcat (0.1.0)
+  tomcat (7.0.0)
