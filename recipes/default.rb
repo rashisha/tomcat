@@ -15,8 +15,8 @@ tc7user = node["tomcat7"]["user"]
 tc7group = node["tomcat7"]["group"]
 
 # Get the tomcat binary 
-remote_file "/tmp/#{tc7tarball}" do
-    source "#{tc7url}"
+cookbook_file "/tmp/#{tc7tarball}" do
+    source "apache-tomcat-7.0.27.tar.gz"
     mode "0644"
 	action :create
 end
