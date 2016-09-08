@@ -1,234 +1,129 @@
-I, [2016-09-05T16:55:27.181980 #8228]  INFO -- default-centos-67: -----> Converging <default-centos-67>...
-I, [2016-09-05T16:55:27.189481 #8228]  INFO -- default-centos-67: Preparing files for transfer
-I, [2016-09-05T16:55:27.190981 #8228]  INFO -- default-centos-67: Preparing dna.json
-I, [2016-09-05T16:55:27.200482 #8228]  INFO -- default-centos-67: Resolving cookbook dependencies with Berkshelf 4.3.5...
-I, [2016-09-05T16:55:28.574157 #8228]  INFO -- default-centos-67: Removing non-cookbook files before transfer
-I, [2016-09-05T16:55:28.640665 #8228]  INFO -- default-centos-67: Preparing validation.pem
-I, [2016-09-05T16:55:28.648166 #8228]  INFO -- default-centos-67: Preparing client.rb
-I, [2016-09-05T16:55:30.265871 #8228]  INFO -- default-centos-67: -----> Chef Omnibus installation detected (install only if missing)
-I, [2016-09-05T16:55:30.557909 #8228]  INFO -- default-centos-67: Transferring files to <default-centos-67>
-I, [2016-09-05T16:55:38.573926 #8228]  INFO -- default-centos-67: Starting Chef Client, version 12.13.37
-I, [2016-09-05T16:55:45.459801 #8228]  INFO -- default-centos-67: resolving cookbooks for run list: ["tomcat::default"]
-I, [2016-09-05T16:55:45.774841 #8228]  INFO -- default-centos-67: Synchronizing Cookbooks:
-I, [2016-09-05T16:55:45.829848 #8228]  INFO -- default-centos-67:   - tomcat (7.0.0)
-I, [2016-09-05T16:55:45.830348 #8228]  INFO -- default-centos-67: Installing Cookbook Gems:
-I, [2016-09-05T16:55:45.838349 #8228]  INFO -- default-centos-67: Compiling Cookbooks...
-I, [2016-09-05T16:55:45.885355 #8228]  INFO -- default-centos-67: Converging 15 resources
-I, [2016-09-05T16:55:45.888355 #8228]  INFO -- default-centos-67: Recipe: tomcat::default
-I, [2016-09-05T16:55:53.699347 #8228]  INFO -- default-centos-67:   * remote_file[/tmp/apache-tomcat-7.0.27.tar.gz] action create (up to date)
-I, [2016-09-05T16:55:53.734852 #8228]  INFO -- default-centos-67:   * group[tomcat] action create (up to date)
-I, [2016-09-05T16:55:53.739352 #8228]  INFO -- default-centos-67:   * user[tomcat] action create (up to date)
-I, [2016-09-05T16:55:53.751854 #8228]  INFO -- default-centos-67:   * directory[/var/lib/apache-tomcat-7.0.27] action create (up to date)
-I, [2016-09-05T16:55:54.460944 #8228]  INFO -- default-centos-67:   * execute[tar] action run
-I, [2016-09-05T16:55:54.462944 #8228]  INFO -- default-centos-67:     - execute tar zxf /tmp/apache-tomcat-7.0.27.tar.gz
-I, [2016-09-05T16:55:54.474446 #8228]  INFO -- default-centos-67:   * link[/var/lib/tomcat] action create (up to date)
-I, [2016-09-05T16:55:54.548955 #8228]  INFO -- default-centos-67:   * template[/etc/init.d/tomcat7] action create (up to date)
-I, [2016-09-05T16:55:54.713976 #8228]  INFO -- default-centos-67:   * execute[init-rh] action run
-I, [2016-09-05T16:55:54.713976 #8228]  INFO -- default-centos-67:     - execute chkconfig --add tomcat7
-I, [2016-09-05T16:55:55.120028 #8228]  INFO -- default-centos-67:   * service[tomcat7] action enable (up to date)
-I, [2016-09-05T16:55:55.370059 #8228]  INFO -- default-centos-67:   * service[tomcat7] action start (up to date)
-I, [2016-09-05T16:55:55.515078 #8228]  INFO -- default-centos-67:   * template[/var/lib/tomcat/conf/server.xml] action create
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:     - update content in file /var/lib/tomcat/conf/server.xml from f9ae4a to 2d58c2
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:     --- /var/lib/tomcat/conf/server.xml	2012-03-31 14:45:11.000000000 +0000
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:     +++ /var/lib/tomcat/conf/.chef-server.xml20160905-6690-1n1h8q8	2016-09-05 11:25:55.457023222 +0000
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:     @@ -78,12 +78,13 @@
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:              redirectPort="8443" />
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:   -->
-I, [2016-09-05T16:55:55.515578 #8228]  INFO -- default-centos-67:   <!-- Define a SSL HTTP/1.1 Connector on port 8443
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     -         This connector uses the JSSE configuration, when using APR, the
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     -         connector should be using the OpenSSL style configuration
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     -         described in the APR documentation -->
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     +         This connector uses the BIO implementation that requires the JSSE
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     +         style configuration. When using the APR/native implementation, the
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     +         OpenSSL style configuration is required as described in the APR/native
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:     +         documentation -->
-I, [2016-09-05T16:55:55.516078 #8228]  INFO -- default-centos-67:   <!--
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:     -    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:     -               maxThreads="150" scheme="https" secure="true"
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:     +    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:     +               maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:              clientAuth="false" sslProtocol="TLS" />
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:   -->
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:      
-I, [2016-09-05T16:55:55.516578 #8228]  INFO -- default-centos-67:     @@ -100,7 +101,40 @@
-I, [2016-09-05T16:55:55.517078 #8228]  INFO -- default-centos-67:   <!-- You should set jvmRoute to support load-balancing via AJP ie :
-I, [2016-09-05T16:55:55.517578 #8228]  INFO -- default-centos-67:   <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
-I, [2016-09-05T16:55:55.520078 #8228]  INFO -- default-centos-67:   -->
-I, [2016-09-05T16:55:55.521078 #8228]  INFO -- default-centos-67:     -    <Engine name="Catalina" defaultHost="localhost">
-I, [2016-09-05T16:55:55.522579 #8228]  INFO -- default-centos-67:     +    <Engine name="Catalina" defaultHost="localhost" jvmRoute="{{ inventory_hostname_short }}">
-I, [2016-09-05T16:55:55.522579 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.522579 #8228]  INFO -- default-centos-67:     +	<Cluster className='org.apache.catalina.ha.tcp.SimpleTcpCluster' channelSendOptions='8'>
-I, [2016-09-05T16:55:55.522579 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.522579 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.525079 #8228]  INFO -- default-centos-67:     +		<Channel className='org.apache.catalina.tribes.group.GroupChannel'>
-I, [2016-09-05T16:55:55.525579 #8228]  INFO -- default-centos-67:     +			<Membership className='org.apache.catalina.tribes.membership.McastService'
-I, [2016-09-05T16:55:55.526579 #8228]  INFO -- default-centos-67:     +				address='228.0.0.4'
-I, [2016-09-05T16:55:55.528079 #8228]  INFO -- default-centos-67:     +				port='45564'
-I, [2016-09-05T16:55:55.528079 #8228]  INFO -- default-centos-67:     +				frequency='500'
-I, [2016-09-05T16:55:55.528079 #8228]  INFO -- default-centos-67:     +				dropTime='3000'/>
-I, [2016-09-05T16:55:55.528079 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +			<Sender className='org.apache.catalina.tribes.transport.ReplicationTransmitter'>
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +				<Transport className='org.apache.catalina.tribes.transport.nio.PooledParallelSender'/>
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +			</Sender>
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +			<Receiver className='org.apache.catalina.tribes.transport.nio.NioReceiver'
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +				address='auto'
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +				port='4000'
-I, [2016-09-05T16:55:55.528579 #8228]  INFO -- default-centos-67:     +				autoBind='100'
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +				selectorTimeout='5000'
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +				maxThreads='6'/>
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +			<Interceptor className='org.apache.catalina.tribes.group.interceptors.TcpFailureDetector'/>
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +			<Interceptor className='org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor'/>
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +		</Channel>
-I, [2016-09-05T16:55:55.529079 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +		<Valve className='org.apache.catalina.ha.tcp.ReplicationValve' filter=''/>
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +		<Valve className='org.apache.catalina.ha.session.JvmRouteBinderValve'/>
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +		<ClusterListener className='org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener'/>
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +		<ClusterListener className='org.apache.catalina.ha.session.ClusterSessionListener'/>
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:     +	</Cluster>
-I, [2016-09-05T16:55:55.529580 #8228]  INFO -- default-centos-67:      
-I, [2016-09-05T16:55:55.767110 #8228]  INFO -- default-centos-67:     <!--For clustering, please take a look at documentation at:
-I, [2016-09-05T16:55:55.771610 #8228]  INFO -- default-centos-67:         /docs/cluster-howto.html  (simple how to)
-I, [2016-09-05T16:55:56.292176 #8228]  INFO -- default-centos-67:     - change mode from '0600' to '0644'
-I, [2016-09-05T16:55:56.298677 #8228]  INFO -- default-centos-67:     - restore selinux security context
-I, [2016-09-05T16:55:56.394189 #8228]  INFO -- default-centos-67:   * template[//var/lib/tomcat/conf/context.xml] action create
-I, [2016-09-05T16:55:56.395689 #8228]  INFO -- default-centos-67:     - update content in file //var/lib/tomcat/conf/context.xml from 2e602c to 89e023
-I, [2016-09-05T16:55:56.395689 #8228]  INFO -- default-centos-67:     --- //var/lib/tomcat/conf/context.xml	2012-03-31 14:45:11.000000000 +0000
-I, [2016-09-05T16:55:56.397690 #8228]  INFO -- default-centos-67:     +++ /var/lib/tomcat/conf/.chef-context.xml20160905-6690-1xt3b0x	2016-09-05 11:25:56.449023238 +0000
-I, [2016-09-05T16:55:56.399690 #8228]  INFO -- default-centos-67:     @@ -31,6 +31,11 @@
-I, [2016-09-05T16:55:56.400190 #8228]  INFO -- default-centos-67:   <!--
-I, [2016-09-05T16:55:56.400690 #8228]  INFO -- default-centos-67:   <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
-I, [2016-09-05T16:55:56.404191 #8228]  INFO -- default-centos-67:   -->
-I, [2016-09-05T16:55:56.405691 #8228]  INFO -- default-centos-67:     +    <Manager className='org.apache.catalina.ha.session.DeltaManager'
-I, [2016-09-05T16:55:56.406191 #8228]  INFO -- default-centos-67:     +		expireSessionsOnShutdown='false'
-I, [2016-09-05T16:55:56.407191 #8228]  INFO -- default-centos-67:     +		notifyListenersOnReplication='true'/>
-I, [2016-09-05T16:55:56.407691 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:56.407691 #8228]  INFO -- default-centos-67:     +
-I, [2016-09-05T16:55:56.408191 #8228]  INFO -- default-centos-67:      
-I, [2016-09-05T16:55:56.468199 #8228]  INFO -- default-centos-67:      </Context>
-I, [2016-09-05T16:55:56.468699 #8228]  INFO -- default-centos-67:     - change mode from '0600' to '0644'
-I, [2016-09-05T16:55:56.468699 #8228]  INFO -- default-centos-67:     - change owner from 'tomcat' to 'root'
-I, [2016-09-05T16:55:56.771737 #8228]  INFO -- default-centos-67:     - change group from 'tomcat' to 'root'
-I, [2016-09-05T16:55:56.776738 #8228]  INFO -- default-centos-67:     - restore selinux security context
-I, [2016-09-05T16:55:56.782239 #8228]  INFO -- default-centos-67:   * execute[Delete previous war file] action nothing (skipped due to action :nothing)
-I, [2016-09-05T16:55:56.787239 #8228]  INFO -- default-centos-67:   * cookbook_file[/var/lib/tomcat/webapps/ServletDBLog4jExample.war] action create
-I, [2016-09-05T16:55:56.791240 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.793740 #8228]  INFO -- default-centos-67:     ================================================================================
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:     Error executing action `create` on resource 'cookbook_file[/var/lib/tomcat/webapps/ServletDBLog4jExample.war]'
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:     ================================================================================
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:     Chef::Exceptions::FileNotFound
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:     ------------------------------
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:     Cookbook 'tomcat' (7.0.0) does not contain a file at any of these locations:
-I, [2016-09-05T16:55:56.794240 #8228]  INFO -- default-centos-67:       files/centos-6.7/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:56.827744 #8228]  INFO -- default-centos-67:       files/centos/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:56.830245 #8228]  INFO -- default-centos-67:       files/default/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:56.836245 #8228]  INFO -- default-centos-67:       files/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:56.836245 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.836245 #8228]  INFO -- default-centos-67:     Resource Declaration:
-I, [2016-09-05T16:55:56.836245 #8228]  INFO -- default-centos-67:     ---------------------
-I, [2016-09-05T16:55:56.836245 #8228]  INFO -- default-centos-67:     # In /tmp/kitchen/cache/cookbooks/tomcat/recipes/default.rb
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     118: cookbook_file '/var/lib/tomcat/webapps/ServletDBLog4jExample.war' do
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     119:   source 'ServletDBLog4jExample.war '
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     120:   owner 'root'
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     121:   group 'root'
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     122:   mode '0755'
-I, [2016-09-05T16:55:56.836746 #8228]  INFO -- default-centos-67:     123:   action :create
-I, [2016-09-05T16:55:56.837746 #8228]  INFO -- default-centos-67:     124:   notifies :restart, resources(:service => "tomcat7"), :immediately
-I, [2016-09-05T16:55:56.839746 #8228]  INFO -- default-centos-67:     125: end
-I, [2016-09-05T16:55:56.840246 #8228]  INFO -- default-centos-67:     126: 
-I, [2016-09-05T16:55:56.840746 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.840746 #8228]  INFO -- default-centos-67:     Compiled Resource:
-I, [2016-09-05T16:55:56.841246 #8228]  INFO -- default-centos-67:     ------------------
-I, [2016-09-05T16:55:56.905254 #8228]  INFO -- default-centos-67:     # Declared in /tmp/kitchen/cache/cookbooks/tomcat/recipes/default.rb:118:in `from_file'
-I, [2016-09-05T16:55:56.905754 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.905754 #8228]  INFO -- default-centos-67:     cookbook_file("/var/lib/tomcat/webapps/ServletDBLog4jExample.war") do
-I, [2016-09-05T16:55:56.905754 #8228]  INFO -- default-centos-67:       provider Chef::Provider::CookbookFile
-I, [2016-09-05T16:55:56.905754 #8228]  INFO -- default-centos-67:       action [:create]
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       retries 0
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       retry_delay 2
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       default_guard_interpreter :default
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       source "ServletDBLog4jExample.war "
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       declared_type :cookbook_file
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       cookbook_name "tomcat"
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       recipe_name "default"
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       owner "root"
-I, [2016-09-05T16:55:56.906254 #8228]  INFO -- default-centos-67:       group "root"
-I, [2016-09-05T16:55:56.906754 #8228]  INFO -- default-centos-67:       mode "0755"
-I, [2016-09-05T16:55:56.906754 #8228]  INFO -- default-centos-67:       atomic_update true
-I, [2016-09-05T16:55:56.906754 #8228]  INFO -- default-centos-67:       path "/var/lib/tomcat/webapps/ServletDBLog4jExample.war"
-I, [2016-09-05T16:55:56.907755 #8228]  INFO -- default-centos-67:     end
-I, [2016-09-05T16:55:56.908255 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:56.908255 #8228]  INFO -- default-centos-67:     Platform:
-I, [2016-09-05T16:55:56.983264 #8228]  INFO -- default-centos-67:     ---------
-I, [2016-09-05T16:55:56.983764 #8228]  INFO -- default-centos-67:     x86_64-linux
-I, [2016-09-05T16:55:56.984264 #8228]  INFO -- default-centos-67:     
-I, [2016-09-05T16:55:57.553336 #8228]  INFO -- default-centos-67:   * service[tomcat7] action restart
-I, [2016-09-05T16:55:57.553336 #8228]  INFO -- default-centos-67:     - restart service service[tomcat7]
-I, [2016-09-05T16:55:57.557837 #8228]  INFO -- default-centos-67: 
-I, [2016-09-05T16:55:57.557837 #8228]  INFO -- default-centos-67: Running handlers:
-I, [2016-09-05T16:55:57.558337 #8228]  INFO -- default-centos-67: [2016-09-05T11:25:57+00:00] ERROR: Running exception handlers
-I, [2016-09-05T16:55:57.558337 #8228]  INFO -- default-centos-67: Running handlers complete
-I, [2016-09-05T16:55:57.558337 #8228]  INFO -- default-centos-67: [2016-09-05T11:25:57+00:00] ERROR: Exception handlers complete
-I, [2016-09-05T16:55:57.601343 #8228]  INFO -- default-centos-67: Chef Client failed. 5 resources updated in 19 seconds
-I, [2016-09-05T16:55:57.613344 #8228]  INFO -- default-centos-67: [2016-09-05T11:25:57+00:00] FATAL: Stacktrace dumped to /tmp/kitchen/cache/chef-stacktrace.out
-I, [2016-09-05T16:55:57.613344 #8228]  INFO -- default-centos-67: [2016-09-05T11:25:57+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
-I, [2016-09-05T16:55:57.613844 #8228]  INFO -- default-centos-67: [2016-09-05T11:25:57+00:00] ERROR: cookbook_file[/var/lib/tomcat/webapps/ServletDBLog4jExample.war] (tomcat::default line 118) had an error: Chef::Exceptions::FileNotFound: Cookbook 'tomcat' (7.0.0) does not contain a file at any of these locations:
-I, [2016-09-05T16:55:57.613844 #8228]  INFO -- default-centos-67:   files/centos-6.7/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:57.613844 #8228]  INFO -- default-centos-67:   files/centos/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:57.613844 #8228]  INFO -- default-centos-67:   files/default/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:57.613844 #8228]  INFO -- default-centos-67:   files/ServletDBLog4jExample.war 
-I, [2016-09-05T16:55:58.259926 #8228]  INFO -- default-centos-67: [2016-09-05T11:25:58+00:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
-E, [2016-09-05T16:55:58.785493 #8228] ERROR -- default-centos-67: Converge failed on instance <default-centos-67>.
-E, [2016-09-05T16:55:58.785493 #8228] ERROR -- default-centos-67: ------Exception-------
-E, [2016-09-05T16:55:58.785493 #8228] ERROR -- default-centos-67: Class: Kitchen::ActionFailed
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: Message: SSH exited (1) for command: [sh -c '
+I, [2016-09-08T15:07:58.906329 #9188]  INFO -- default-centos-67: -----> Converging <default-centos-67>...
+I, [2016-09-08T15:07:58.923333 #9188]  INFO -- default-centos-67: Preparing files for transfer
+I, [2016-09-08T15:07:58.923833 #9188]  INFO -- default-centos-67: Preparing dna.json
+I, [2016-09-08T15:07:58.927834 #9188]  INFO -- default-centos-67: Resolving cookbook dependencies with Berkshelf 4.3.5...
+I, [2016-09-08T15:08:28.073662 #9188]  INFO -- default-centos-67: Removing non-cookbook files before transfer
+I, [2016-09-08T15:08:28.094166 #9188]  INFO -- default-centos-67: Preparing data
+I, [2016-09-08T15:08:28.109169 #9188]  INFO -- default-centos-67: Preparing validation.pem
+I, [2016-09-08T15:08:28.145676 #9188]  INFO -- default-centos-67: Preparing client.rb
+I, [2016-09-08T15:08:28.918331 #9188]  INFO -- default-centos-67: -----> Chef Omnibus installation detected (install only if missing)
+I, [2016-09-08T15:08:29.083864 #9188]  INFO -- default-centos-67: Transferring files to <default-centos-67>
+I, [2016-09-08T15:08:36.145776 #9188]  INFO -- default-centos-67: Starting Chef Client, version 12.13.37
+I, [2016-09-08T15:08:43.118670 #9188]  INFO -- default-centos-67: resolving cookbooks for run list: ["tomcat::default"]
+I, [2016-09-08T15:08:43.465239 #9188]  INFO -- default-centos-67: Synchronizing Cookbooks:
+I, [2016-09-08T15:08:43.497746 #9188]  INFO -- default-centos-67:   - tomcat (7.0.0)
+I, [2016-09-08T15:08:43.497746 #9188]  INFO -- default-centos-67: Installing Cookbook Gems:
+I, [2016-09-08T15:08:43.511249 #9188]  INFO -- default-centos-67: Compiling Cookbooks...
+I, [2016-09-08T15:08:43.554757 #9188]  INFO -- default-centos-67: Converging 12 resources
+I, [2016-09-08T15:08:43.558758 #9188]  INFO -- default-centos-67: Recipe: tomcat::default
+I, [2016-09-08T15:08:45.037554 #9188]  INFO -- default-centos-67:   * remote_file[/tmp/apache-tomcat-7.0.27.tar.gz] action create[2016-09-08T09:38:45+00:00] ERROR: Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, retry 1/5
+I, [2016-09-08T15:08:51.064759 #9188]  INFO -- default-centos-67: [2016-09-08T09:38:51+00:00] ERROR: Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, retry 2/5
+I, [2016-09-08T15:08:57.091964 #9188]  INFO -- default-centos-67: [2016-09-08T09:38:57+00:00] ERROR: Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, retry 3/5
+I, [2016-09-08T15:09:03.129672 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:03+00:00] ERROR: Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, retry 4/5
+I, [2016-09-08T15:09:09.166879 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:09+00:00] ERROR: Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, retry 5/5
+I, [2016-09-08T15:09:19.365418 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:19+00:00] WARN: remote_file[/tmp/apache-tomcat-7.0.27.tar.gz] cannot be downloaded from http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz: Connection refused - Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, giving up
+I, [2016-09-08T15:09:19.375420 #9188]  INFO -- default-centos-67: 
+I, [2016-09-08T15:09:19.375920 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.375920 #9188]  INFO -- default-centos-67:     ================================================================================
+I, [2016-09-08T15:09:19.375920 #9188]  INFO -- default-centos-67:     Error executing action `create` on resource 'remote_file[/tmp/apache-tomcat-7.0.27.tar.gz]'
+I, [2016-09-08T15:09:19.375920 #9188]  INFO -- default-centos-67:     ================================================================================
+I, [2016-09-08T15:09:19.375920 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.406426 #9188]  INFO -- default-centos-67:     Errno::ECONNREFUSED
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     -------------------
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     Connection refused - Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, giving up
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     Resource Declaration:
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     ---------------------
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     # In /tmp/kitchen/cache/cookbooks/tomcat/recipes/default.rb
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.406926 #9188]  INFO -- default-centos-67:      18: remote_file "/tmp/#{tc7tarball}" do
+I, [2016-09-08T15:09:19.407426 #9188]  INFO -- default-centos-67:      19:     source "#{tc7url}"
+I, [2016-09-08T15:09:19.407426 #9188]  INFO -- default-centos-67:      20:     mode "0644"
+I, [2016-09-08T15:09:19.407426 #9188]  INFO -- default-centos-67:      21: 	action :create
+I, [2016-09-08T15:09:19.407426 #9188]  INFO -- default-centos-67:      22: end
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:      23: 
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:     Compiled Resource:
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:     ------------------
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:     # Declared in /tmp/kitchen/cache/cookbooks/tomcat/recipes/default.rb:18:in `from_file'
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.407927 #9188]  INFO -- default-centos-67:     remote_file("/tmp/apache-tomcat-7.0.27.tar.gz") do
+I, [2016-09-08T15:09:19.408427 #9188]  INFO -- default-centos-67:       provider Chef::Provider::RemoteFile
+I, [2016-09-08T15:09:19.408427 #9188]  INFO -- default-centos-67:       action [:create]
+I, [2016-09-08T15:09:19.408427 #9188]  INFO -- default-centos-67:       retries 0
+I, [2016-09-08T15:09:19.408427 #9188]  INFO -- default-centos-67:       retry_delay 2
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       default_guard_interpreter :default
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       source ["http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz"]
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       use_etag true
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       use_last_modified true
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       declared_type :remote_file
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       cookbook_name "tomcat"
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       recipe_name "default"
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       mode "0644"
+I, [2016-09-08T15:09:19.408927 #9188]  INFO -- default-centos-67:       atomic_update true
+I, [2016-09-08T15:09:19.409427 #9188]  INFO -- default-centos-67:       path "/tmp/apache-tomcat-7.0.27.tar.gz"
+I, [2016-09-08T15:09:19.409427 #9188]  INFO -- default-centos-67:     end
+I, [2016-09-08T15:09:19.409427 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.409427 #9188]  INFO -- default-centos-67:     Platform:
+I, [2016-09-08T15:09:19.665478 #9188]  INFO -- default-centos-67:     ---------
+I, [2016-09-08T15:09:19.667478 #9188]  INFO -- default-centos-67:     x86_64-linux
+I, [2016-09-08T15:09:19.667478 #9188]  INFO -- default-centos-67:     
+I, [2016-09-08T15:09:19.689983 #9188]  INFO -- default-centos-67: 
+I, [2016-09-08T15:09:19.689983 #9188]  INFO -- default-centos-67: Running handlers:
+I, [2016-09-08T15:09:19.689983 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:19+00:00] ERROR: Running exception handlers
+I, [2016-09-08T15:09:19.689983 #9188]  INFO -- default-centos-67: Running handlers complete
+I, [2016-09-08T15:09:19.689983 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:19+00:00] ERROR: Exception handlers complete
+I, [2016-09-08T15:09:19.721489 #9188]  INFO -- default-centos-67: Chef Client failed. 0 resources updated in 43 seconds
+I, [2016-09-08T15:09:19.727490 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:19+00:00] FATAL: Stacktrace dumped to /tmp/kitchen/cache/chef-stacktrace.out
+I, [2016-09-08T15:09:19.730991 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:19+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+I, [2016-09-08T15:09:19.730991 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:19+00:00] ERROR: remote_file[/tmp/apache-tomcat-7.0.27.tar.gz] (tomcat::default line 18) had an error: Errno::ECONNREFUSED: Connection refused - Connection refused connecting to http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.27/bin/apache-tomcat-7.0.27.tar.gz, giving up
+I, [2016-09-08T15:09:20.112067 #9188]  INFO -- default-centos-67: [2016-09-08T09:39:20+00:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+E, [2016-09-08T15:09:20.545654 #9188] ERROR -- default-centos-67: Converge failed on instance <default-centos-67>.
+E, [2016-09-08T15:09:20.545654 #9188] ERROR -- default-centos-67: ------Exception-------
+E, [2016-09-08T15:09:20.545654 #9188] ERROR -- default-centos-67: Class: Kitchen::ActionFailed
+E, [2016-09-08T15:09:20.545654 #9188] ERROR -- default-centos-67: Message: SSH exited (1) for command: [sh -c '
 sudo -E /opt/chef/bin/chef-client --local-mode --config /tmp/kitchen/client.rb --log_level auto --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json --chef-zero-port 8889 
 ']
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: ----------------------
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: ------Backtrace-------
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:86:in `rescue in call'
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:89:in `call'
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:373:in `block in converge_action'
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `call'
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `synchronize_or_call'
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:478:in `block in action'
-E, [2016-09-05T16:55:58.785993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:477:in `action'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:369:in `converge_action'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:348:in `block in transition_to'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `each'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `transition_to'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:138:in `converge'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `public_send'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `run_action_in_thread'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:173:in `block (2 levels) in run_action'
-E, [2016-09-05T16:55:58.786493 #8228] ERROR -- default-centos-67: ----End Backtrace-----
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: ---Nested Exception---
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: Class: Kitchen::Transport::SshFailed
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: Message: SSH exited (1) for command: [sh -c '
+E, [2016-09-08T15:09:20.545654 #9188] ERROR -- default-centos-67: ----------------------
+E, [2016-09-08T15:09:20.545654 #9188] ERROR -- default-centos-67: ------Backtrace-------
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:86:in `rescue in call'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:89:in `call'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:373:in `block in converge_action'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `call'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `synchronize_or_call'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:478:in `block in action'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:477:in `action'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:369:in `converge_action'
+E, [2016-09-08T15:09:20.546154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:348:in `block in transition_to'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `each'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `transition_to'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:160:in `verify'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `public_send'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `run_action_in_thread'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:173:in `block (2 levels) in run_action'
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: ----End Backtrace-----
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: ---Nested Exception---
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: Class: Kitchen::Transport::SshFailed
+E, [2016-09-08T15:09:20.546654 #9188] ERROR -- default-centos-67: Message: SSH exited (1) for command: [sh -c '
 sudo -E /opt/chef/bin/chef-client --local-mode --config /tmp/kitchen/client.rb --log_level auto --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json --chef-zero-port 8889 
 ']
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: ----------------------
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: ------Backtrace-------
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:86:in `rescue in call'
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:89:in `call'
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:373:in `block in converge_action'
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `call'
-E, [2016-09-05T16:55:58.786993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `synchronize_or_call'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:478:in `block in action'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:477:in `action'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:369:in `converge_action'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:348:in `block in transition_to'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `each'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `transition_to'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:138:in `converge'
-E, [2016-09-05T16:55:58.787493 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `public_send'
-E, [2016-09-05T16:55:58.787993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `run_action_in_thread'
-E, [2016-09-05T16:55:58.787993 #8228] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:173:in `block (2 levels) in run_action'
-E, [2016-09-05T16:55:58.787993 #8228] ERROR -- default-centos-67: ----End Backtrace-----
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: ----------------------
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: ------Backtrace-------
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:86:in `rescue in call'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/provisioner/base.rb:89:in `call'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:373:in `block in converge_action'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `call'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:513:in `synchronize_or_call'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:478:in `block in action'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2016-09-08T15:09:20.547154 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:477:in `action'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:369:in `converge_action'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:348:in `block in transition_to'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `each'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:347:in `transition_to'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/instance.rb:160:in `verify'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `public_send'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:201:in `run_action_in_thread'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: C:/opscode/chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.10.2/lib/kitchen/command.rb:173:in `block (2 levels) in run_action'
+E, [2016-09-08T15:09:20.547654 #9188] ERROR -- default-centos-67: ----End Backtrace-----
