@@ -32,7 +32,7 @@ user "#{tc7user}" do
     comment "Tomcat7 user"
     gid "#{tc7group}"
     home "#{tc7target}"
-    shell "/bin/false"
+    shell "/bin/sh"
     system true
     action :create
 end
@@ -64,13 +64,13 @@ end
 # Add the init-script
 template "/etc/init.d/tomcat7" do
 		source "init-rh.erb"
-		owner "root"
-		group "root"
+		owner "#{tc7user}"
+		group "#{tc7group}"
 		mode "0755"
     end
     execute "init-rh" do
-		user "root"
-		group "root"
+		owner "#{tc7user}"
+		group "#{tc7group}"
 		command "chkconfig --add tomcat7"
 		action :run
     end
@@ -94,8 +94,8 @@ end
 
 template "/#{tc7target}/tomcat/conf/context.xml" do
   source "context.xml.erb"
-  owner "root"
-  group "root"
+  owner "#{tc7user}"
+  group "#{tc7group}"
   mode "0644"
   notifies :restart, resources(:service => "tomcat7")
 end
@@ -110,7 +110,7 @@ end
 #command 'scp C:\Program Files (x86)\Jenkins\jobs\Build the code\workspace\dist\ServletDBLog4jExample.war rashi_s@52.172.9.84://tmp'
 #end
 
-remote_file '/var/lib/tomcat/webapp/ServletDBLog4jExample.war' do
+remote_file '/var/lib/tomcat/webapps/ServletDBLog4jExample.war' do
   source 'file:///tmp/ServletDBLog4jExample.war'
   owner 'tomcat'
   group 'tomcat'
@@ -141,20 +141,7 @@ end
      #  action :run
    #end
 
-#cookbook_file '/var/lib/tomcat/webapps/ServletDBLog4jExample.war' do
-#  source 'ServletDBLog4jExample.war '
-#  owner 'root'
-#  group 'root'
-#  mode '0755'
-#  action :create
-#  notifies :restart, resources(:service => "tomcat7"), :immediately
-#end
 
-#ruby_block 'wait for tomcat' do
- # block do
- #   true until ::File.exists?('/var/lib/tomcat/webapps/ServletDBLog4jExample/WEB-INF/web.xml')
- # end
-#end
 
 #template "/var/lib/tomcat/webapps/ServletDBLog4jExample/WEB-INF/web.xml" do
  # source "web.xml.erb"
