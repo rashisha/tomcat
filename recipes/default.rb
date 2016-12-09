@@ -106,9 +106,12 @@ execute 'Delete previous war file' do
   action :nothing
 end
 
-#execute 'Copy war file' do
-#command 'scp C:\Program Files (x86)\Jenkins\jobs\Build the code\workspace\dist\ServletDBLog4jExample.war rashi_s@52.172.9.84://tmp'
-#end
+# 'Copy war file' 
+cookbook_file "/tmp/ServletDBLog4jExample.war" do
+    source "ServletDBLog4jExample.war"
+    mode "0644"
+	action :create
+end
 
 remote_file '/var/lib/tomcat/webapps/ServletDBLog4jExample.war' do
   source 'file:///tmp/ServletDBLog4jExample.war'
@@ -127,17 +130,17 @@ ruby_block 'wait for tomcat' do
 end
 
 #execute ‘StopOldWar’ do
- #       command ‘wget –http-user=admin –http-password=password “http://tomcat7-dev:8080/manager/text/stop?path=/webapp1″ -O -‘
+ #       command ‘wget –http-user=admin –http-password=admin “http://tomcat7-dev:8080/manager/text/stop?path=/webapp1″ -O -‘
   #      action :run
   # end
 
    #execute ‘UnDeployOldWar’ do
-    #   command ‘wget –http-user=admin –http-password=password “http://tomcat7-dev:8080/manager/text/undeploy?path=/webapp1″ -O -‘
+    #   command ‘wget –http-user=admin –http-password=admin “http://tomcat7-dev:8080/manager/text/undeploy?path=/webapp1″ -O -‘
      #  action :run
    #end
 
    #execute ‘DeployNewWar’ do
-    #   command ‘wget –http-user=admin –http-password=password “http://tomcat7-dev:8080/manager/text/deploy?war=file:/warfiles/webapp1.war&path=/webapp1″ -O -‘
+    #   command ‘wget –http-user=admin –http-password=admin “http://tomcat7-dev:8080/manager/text/deploy?war=file:/warfiles/webapp1.war&path=/webapp1″ -O -‘
      #  action :run
    #end
 
